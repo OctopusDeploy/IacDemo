@@ -1,0 +1,380 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_PrimaryVNet_name": {
+            "defaultValue": "PrimaryVNet",
+            "type": "String"
+        },
+        "storageAccounts_octopusbobiac_name": {
+            "defaultValue": "octopusbobiac",
+            "type": "String"
+        },
+        "subnets_Dev_name": {
+            "defaultValue": "Dev",
+            "type": "String"
+        },
+        "subnets_Test_name": {
+            "defaultValue": "Test",
+            "type": "String"
+        },
+        "subnets_Prod_name": {
+            "defaultValue": "Prod",
+            "type": "String"
+        },
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "subnets_Pre_Prod_name": {
+            "defaultValue": "Pre-Prod",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_PrimaryVNet_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "southcentralus",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "9e9a91e5-1019-4ad2-a621-44baf8d9eb82",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"7c7424cd-e8d6-4e51-9ef5-3761ba96dfef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Sql",
+                                    "locations": [
+                                        "southcentralus"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "southcentralus",
+                                        "northcentralus",
+                                        "brazilsouth"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Dev",
+                        "etag": "W/\"7c7424cd-e8d6-4e51-9ef5-3761ba96dfef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.1.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Sql",
+                                    "locations": [
+                                        "southcentralus"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "southcentralus",
+                                        "northcentralus",
+                                        "brazilsouth"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Test",
+                        "etag": "W/\"7c7424cd-e8d6-4e51-9ef5-3761ba96dfef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.2.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "southcentralus",
+                                        "northcentralus",
+                                        "brazilsouth"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Pre-Prod",
+                        "etag": "W/\"7c7424cd-e8d6-4e51-9ef5-3761ba96dfef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.3.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "southcentralus",
+                                        "northcentralus",
+                                        "brazilsouth"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Prod",
+                        "etag": "W/\"7c7424cd-e8d6-4e51-9ef5-3761ba96dfef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.4.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "southcentralus",
+                                        "northcentralus",
+                                        "brazilsouth"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Storage/storageAccounts/octopusbobiac'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_RAGRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_octopusbobiac_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "southcentralus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_default_name'))]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Dev_name'))]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Test_name'))]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Pre_Prod_name'))]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Prod_name'))]",
+                            "action": "Allow",
+                            "state": "Succeeded"
+                        }
+                    ],
+                    "ipRules": [
+                        {
+                            "value": "67.3.150.146",
+                            "action": "Allow"
+                        }
+                    ],
+                    "defaultAction": "Deny"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Dev_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Test_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Pre_Prod_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_PrimaryVNet_name'), parameters('subnets_Prod_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_PrimaryVNet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.0.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Sql",
+                        "locations": [
+                            "southcentralus"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "southcentralus",
+                            "northcentralus",
+                            "brazilsouth"
+                        ]
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_PrimaryVNet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet/subnets/Dev'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_PrimaryVNet_name'), '/', parameters('subnets_Dev_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.1.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Sql",
+                        "locations": [
+                            "southcentralus"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "southcentralus",
+                            "northcentralus",
+                            "brazilsouth"
+                        ]
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_PrimaryVNet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet/subnets/Test'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_PrimaryVNet_name'), '/', parameters('subnets_Test_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.2.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "southcentralus",
+                            "northcentralus",
+                            "brazilsouth"
+                        ]
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_PrimaryVNet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet/subnets/Pre-Prod'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_PrimaryVNet_name'), '/', parameters('subnets_Pre_Prod_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.3.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "southcentralus",
+                            "northcentralus",
+                            "brazilsouth"
+                        ]
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_PrimaryVNet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/301a6f94-2bf0-4972-b611-7bb703b2c2f6/resourceGroups/Octopus/providers/Microsoft.Network/virtualNetworks/PrimaryVNet/subnets/Prod'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_PrimaryVNet_name'), '/', parameters('subnets_Prod_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.4.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "southcentralus",
+                            "northcentralus",
+                            "brazilsouth"
+                        ]
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_PrimaryVNet_name'))]"
+            ]
+        }
+    ]
+}
