@@ -1,10 +1,18 @@
 # IacDemo
  Contains all the files for the Infrastructure as Code Demo.
 
+Slideshow link:  https://docs.google.com/presentation/d/17XSupy667ZV3nhd2i4RYQpssc_9lXVLQeNBVUBd529A/edit?usp=sharing
+
 ## Azure
 
 ### Azure Bootstrap
-To get started you will need two items.  A pre-existing virtual network and a storage account to store the bootstrap scripts and MSIs to install on the servers.  To help out an ARM template is stored in this repository in the Azure / ArmTemplates folder there is a file called "PreExistingResourceGroup.json."  
+To get started you will need two items.  A pre-existing virtual network and a storage account to store the bootstrap scripts and MSIs to install on the servers.  
+
+The MSIs used in the demo can be found at:
+- https://s3.us-east-2.amazonaws.com/octopus-iac-demo/DLMAutomation.zip
+- https://s3.us-east-2.amazonaws.com/octopus-iac-demo/Octopus.Tentacle.zip 
+
+To help build out the demo resource group an ARM template is stored in this repository in the Azure / ArmTemplates folder there is a file called "PreExistingResourceGroup.json."  
 
 The storage account should have a container called "bootstrap." 
 
@@ -18,7 +26,7 @@ The storage account should also have a file share called "installer."
 
 ![](img/bootstrap-files.png)
 
-The zip files in the folder "AdditionalSoftware" should be extracted to that share.
+The zip files from the S3 bucket should be extracted to that share.
 
 ![](img/bootstrap-files-contents.png)
 
